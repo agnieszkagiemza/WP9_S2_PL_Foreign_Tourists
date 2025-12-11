@@ -67,7 +67,7 @@ Well-designed features help:
 
 -   improve the accuracy of predictive models.
 
-Ultimately, feature engineering enables the model to better understand what drives the number of foreign tourists in each of the five selected countries and to produce more reliable forecasts
+Ultimately, feature engineering enables the model to better understand what drives the number of foreign tourists in each of the five selected countries and to produce more reliable forecasts.
 
 # Performed steps
 
