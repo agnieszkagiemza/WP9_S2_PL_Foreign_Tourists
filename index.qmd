@@ -94,7 +94,7 @@ gsbpm: "5.1" # See complete taxonomy: https://www.unescap.org/sites/default/d8fi
 
 ***Pilot study for imputation - accommodation establishments***
 
-**Accommodation establishments**
+# Type of accomodation establisments
 
 Tourist accommodation establishments regardless of the type, owner, and location, as well as establishments with other purposes (not related to tourism) that are temporarily used by tourists (e.g., student dormitories, sports and recreation centers).
 
@@ -106,7 +106,7 @@ Tourist accommodation establishments classified into the following activity grou
 
 -   55.3 -- camping grounds, recreational vehicle parks and trailer parks. The study covers 20 types of tourist accommodation establishments.
 
-**Survey**
+# About survey
 
 KT-1: Report on the occupancy of tourist accommodation establishments:
 
@@ -120,7 +120,7 @@ KT-1: Report on the occupancy of tourist accommodation establishments:
 
 -   Item non-response pertains mostly to foreign tourist data.
 
-**Data**
+# About Data
 
 Range of collected data
 
@@ -138,7 +138,7 @@ Range of collected data
 
 ### Notification
 
-This repository had been creared from  AIML4OS template .If you want to use it
+This repository had been created from  AIML4OS template. If you want to use it
 see [this tutorial](https://aiml4os.github.io/training-material-starting-pack/).
 
 
