@@ -193,23 +193,29 @@ ul.task-list li input[type="checkbox"] {
 <section id="creating-time-based-features" class="level2">
 <h2 class="anchored" data-anchor-id="creating-time-based-features">1. Creating Time-Based Features</h2>
 <p>Tourism data is strongly seasonal. Time features help models learn recurring patterns. Examples include:</p>
-<p>Month, Quarter, Year</p>
-<p>Day of the week (useful for high-frequency data)</p>
-<p>Season indicators (e.g., summer/winter tourism peaks)</p>
-<p>Holiday periods, such as Christmas or national holidays</p>
+<ul>
+<li><p>Month, Quarter, Year</p></li>
+<li><p>Day of the week (useful for high-frequency data)</p></li>
+<li><p>Season indicators (e.g., summer/winter tourism peaks)</p></li>
+<li><p>Holiday periods, such as Christmas or national holidays</p></li>
+</ul>
 </section>
 <section id="lag-features" class="level2">
 <h2 class="anchored" data-anchor-id="lag-features">2. Lag Features</h2>
 <p>These capture how the number of tourists in previous periods influences future values. Examples:</p>
-<p>Tourists lagged by 1 month</p>
-<p>Lag 3, lag 6, lag 12 (to capture annual seasonality)</p>
+<ul>
+<li><p>Tourists lagged by 1 month</p></li>
+<li><p>Lag 3, lag 6, lag 12 (to capture annual seasonality)</p></li>
+</ul>
 </section>
 <section id="rolling-window-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="rolling-window-statistics">3. Rolling Window Statistics</h2>
 <p>Rolling features smooth fluctuations and describe recent trends. Examples:</p>
-<p>3-month moving average</p>
-<p>12-month rolling sum (useful for year-over-year analysis)</p>
-<p>Rolling standard deviation (volatility of tourism flows)</p>
+<ul>
+<li><p>3-month moving average</p></li>
+<li><p>12-month rolling sum (useful for year-over-year analysis)</p></li>
+<li><p>Rolling standard deviation (volatility of tourism flows)</p></li>
+</ul>
 </section>
 <section id="pandemic-shock-indicators" class="level2">
 <h2 class="anchored" data-anchor-id="pandemic-shock-indicators">4. Pandemic / Shock Indicators</h2>
@@ -222,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="interaction-features" class="level2">
 <h2 class="anchored" data-anchor-id="interaction-features">5. Interaction Features</h2>
-<p>Interactions help models understand combined effects, such as: “Summer season” × “Low exchange rate”</p>
+<p>Interactions help models understand combined effects, such as: “Summer season” × “Low exchange rate”.</p>
 </section>
 </section>
 <section id="why-do-we-design-features" class="level1">
@@ -234,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>incorporate economic and social factors that influence travel decisions,</p></li>
 <li><p>improve the accuracy of predictive models.</p></li>
 </ul>
-<p>Ultimately, feature engineering enables the model to better understand what drives the number of foreign tourists in each of the five selected countries and to produce more reliable forecasts</p>
+<p>Ultimately, feature engineering enables the model to better understand what drives the number of foreign tourists in each of the five selected countries and to produce more reliable forecasts.</p>
 </section>
 <section id="performed-steps" class="level1">
 <h1>Performed steps</h1>

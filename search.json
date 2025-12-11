@@ -14,7 +14,7 @@
     "href": "chapters/Feature_Engineering.html#creating-time-based-features",
     "title": "Feature Engineering",
     "section": "1. Creating Time-Based Features",
-    "text": "1. Creating Time-Based Features\nTourism data is strongly seasonal. Time features help models learn recurring patterns. Examples include:\nMonth, Quarter, Year\nDay of the week (useful for high-frequency data)\nSeason indicators (e.g., summer/winter tourism peaks)\nHoliday periods, such as Christmas or national holidays",
+    "text": "1. Creating Time-Based Features\nTourism data is strongly seasonal. Time features help models learn recurring patterns. Examples include:\n\nMonth, Quarter, Year\nDay of the week (useful for high-frequency data)\nSeason indicators (e.g., summer/winter tourism peaks)\nHoliday periods, such as Christmas or national holidays",
     "crumbs": [
       "Feature Engineering"
     ]
@@ -24,7 +24,7 @@
     "href": "chapters/Feature_Engineering.html#lag-features",
     "title": "Feature Engineering",
     "section": "2. Lag Features",
-    "text": "2. Lag Features\nThese capture how the number of tourists in previous periods influences future values. Examples:\nTourists lagged by 1 month\nLag 3, lag 6, lag 12 (to capture annual seasonality)",
+    "text": "2. Lag Features\nThese capture how the number of tourists in previous periods influences future values. Examples:\n\nTourists lagged by 1 month\nLag 3, lag 6, lag 12 (to capture annual seasonality)",
     "crumbs": [
       "Feature Engineering"
     ]
@@ -34,7 +34,7 @@
     "href": "chapters/Feature_Engineering.html#rolling-window-statistics",
     "title": "Feature Engineering",
     "section": "3. Rolling Window Statistics",
-    "text": "3. Rolling Window Statistics\nRolling features smooth fluctuations and describe recent trends. Examples:\n3-month moving average\n12-month rolling sum (useful for year-over-year analysis)\nRolling standard deviation (volatility of tourism flows)",
+    "text": "3. Rolling Window Statistics\nRolling features smooth fluctuations and describe recent trends. Examples:\n\n3-month moving average\n12-month rolling sum (useful for year-over-year analysis)\nRolling standard deviation (volatility of tourism flows)",
     "crumbs": [
       "Feature Engineering"
     ]
@@ -54,7 +54,7 @@
     "href": "chapters/Feature_Engineering.html#interaction-features",
     "title": "Feature Engineering",
     "section": "5. Interaction Features",
-    "text": "5. Interaction Features\nInteractions help models understand combined effects, such as: “Summer season” × “Low exchange rate”",
+    "text": "5. Interaction Features\nInteractions help models understand combined effects, such as: “Summer season” × “Low exchange rate”.",
     "crumbs": [
       "Feature Engineering"
     ]
