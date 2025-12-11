@@ -3,80 +3,98 @@ title: "Feature Engineering"
 format: html # This qmd file will be compiled as an HTML web page
 ---
 
-__Open the associated notebook__: <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&version=2.3.19&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&autoLaunch=true" target="_blank" rel="noopener" data-original-href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&version=2.3.19&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&autoLaunch=true"><img src="https://custom-icon-badges.demolab.com/badge/SSP%20Cloud-Launch_with_RStudio-blue?logo=vsc&amp;logoColor=white" alt="Onyxia"></a>
+**Open the associated notebook**: <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&version=2.3.19&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&autoLaunch=true" target="_blank" rel="noopener" data-original-href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&version=2.3.19&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&autoLaunch=true"><img src="https://custom-icon-badges.demolab.com/badge/SSP%20Cloud-Launch_with_VSCode-blue?logo=vsc&amp;logoColor=white" alt="Onyxia"/></a>
 
-# A beautiful figure
+# Introduction
 
-This chunk shows how you can produce a beautiful figure.
+Feature engineering is the process of transforming raw data into meaningful input variables (features) that improve the performance and accuracy of predictive models. In the context of forecasting the number of foreign tourists visiting five selected countries, feature engineering helps reveal important patterns, seasonality, trends, and external factors that influence tourism flows.
+
+# Key Aspects of Feature Engineering for Tourism Forecasting
+
+## 1. Creating Time-Based Features
+
+Tourism data is strongly seasonal. Time features help models learn recurring patterns. Examples include:
+
+Month, Quarter, Year
+
+Day of the week (useful for high-frequency data)
+
+Season indicators (e.g., summer/winter tourism peaks)
+
+Holiday periods, such as Christmas or national holidays
+
+## 2. Lag Features
+
+These capture how the number of tourists in previous periods influences future values. Examples:
+
+Tourists lagged by 1 month
+
+Lag 3, lag 6, lag 12 (to capture annual seasonality)
+
+## 3. Rolling Window Statistics
+
+Rolling features smooth fluctuations and describe recent trends. Examples:
+
+3-month moving average
+
+12-month rolling sum (useful for year-over-year analysis)
+
+Rolling standard deviation (volatility of tourism flows)
+
+## 4. Pandemic / Shock Indicators
+
+Tourism is highly sensitive to global shocks. Examples:
+
+-   COVID-19 lockdown periods
+
+-   Political instability indicators
+
+-   Natural disaster events
+
+## 5. Interaction Features
+
+Interactions help models understand combined effects, such as: “Summer season” × “Low exchange rate”
+
+# Why do we design features?
+
+Well-designed features help:
+
+-   identify seasonal tourism peaks,
+
+-   capture long-term trends,
+
+-   incorporate economic and social factors that influence travel decisions,
+
+-   improve the accuracy of predictive models.
+
+Ultimately, feature engineering enables the model to better understand what drives the number of foreign tourists in each of the five selected countries and to produce more reliable forecasts
+
+# Performed steps
+
+## Step 1
+
+Description and code below
 
 ```{python}
-#| label: fig-polar
-#| fig-cap: "A line plot on a polar axis"
 
-import numpy as np
-import matplotlib.pyplot as plt
 
-r = np.arange(0, 2, 0.01)
-theta = 2 * np.pi * r
-fig, ax = plt.subplots(
-  subplot_kw = {'projection': 'polar'} 
-)
-ax.plot(theta, r)
-ax.set_rticks([0.5, 1, 1.5, 2])
-ax.grid(True)
-plt.show()
+
 ```
 
-## A beautiful dataframe
+## Step 2
 
-This section demonstrates how to create and display a simple pandas DataFrame.
+Description and code below
 
 ```{python}
-#| label: tbl-pandas
-#| tbl-cap: "Simple pandas DataFrame"
 
-import pandas as pd
 
-data = {
-    "Name": ["Alice", "Bob", "Charlie"],
-    "Age": [25, 30, 35],
-    "City": ["Paris", "Dublin", "Berlin"]
-}
 
-df = pd.DataFrame(data)
-df
 ```
 
-## A more sophisticated table
+## Step 3
 
-This section demonstrates how to create and display a simple pandas DataFrame.
+Description and code below
 
 ```{python}
-from great_tables import GT, html
-from great_tables.data import sza
-import polars as pl
-from polars import col as c
-import polars.selectors as cs
 
-sza_pivot = (
-    pl.from_pandas(sza)
-    .filter((c.latitude == "20") & (c.tst <= "1200"))
-    .select(pl.col("*").exclude("latitude"))
-    .drop_nulls()
-    .pivot(values="sza", index="month", on="tst", sort_columns=True)
-)
-
-(
-    GT(sza_pivot, rowname_col="month")
-    .data_color(
-        domain=[90, 0],
-        palette=["rebeccapurple", "white", "orange"],
-        na_color="white",
-    )
-    .tab_header(
-        title="Solar Zenith Angles from 05:30 to 12:00",
-        subtitle=html("Average monthly values at latitude of 20&deg;N."),
-    )
-    .sub_missing(missing_text="")
-)
 ```
