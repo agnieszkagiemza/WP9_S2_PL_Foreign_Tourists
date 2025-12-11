@@ -15,31 +15,31 @@ Feature engineering is the process of transforming raw data into meaningful inpu
 
 Tourism data is strongly seasonal. Time features help models learn recurring patterns. Examples include:
 
-Month, Quarter, Year
+-   Month, Quarter, Year
 
-Day of the week (useful for high-frequency data)
+-   Day of the week (useful for high-frequency data)
 
-Season indicators (e.g., summer/winter tourism peaks)
+-   Season indicators (e.g., summer/winter tourism peaks)
 
-Holiday periods, such as Christmas or national holidays
+-   Holiday periods, such as Christmas or national holidays
 
 ## 2. Lag Features
 
 These capture how the number of tourists in previous periods influences future values. Examples:
 
-Tourists lagged by 1 month
+-   Tourists lagged by 1 month
 
-Lag 3, lag 6, lag 12 (to capture annual seasonality)
+-   Lag 3, lag 6, lag 12 (to capture annual seasonality)
 
 ## 3. Rolling Window Statistics
 
 Rolling features smooth fluctuations and describe recent trends. Examples:
 
-3-month moving average
+-   3-month moving average
 
-12-month rolling sum (useful for year-over-year analysis)
+-   12-month rolling sum (useful for year-over-year analysis)
 
-Rolling standard deviation (volatility of tourism flows)
+-   Rolling standard deviation (volatility of tourism flows)
 
 ## 4. Pandemic / Shock Indicators
 
@@ -53,7 +53,7 @@ Tourism is highly sensitive to global shocks. Examples:
 
 ## 5. Interaction Features
 
-Interactions help models understand combined effects, such as: “Summer season” × “Low exchange rate”
+Interactions help models understand combined effects, such as: “Summer season” × “Low exchange rate”.
 
 # Why do we design features?
 
