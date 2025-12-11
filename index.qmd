@@ -67,7 +67,7 @@ publicLevel:
 
 resourceLanguage:
   - R
-  # - Python
+  - Python
 
 suggestedBefore:
   - https://quarto.org/
