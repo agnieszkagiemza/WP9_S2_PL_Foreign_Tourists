@@ -50,7 +50,7 @@ Range of collected data
   
 
 
-Repository has been created using AIML40S Template:  <img height="18" width="18" src="https://cdn.simpleicons.org/python/00ccff99" /> tutorial template for AIML4OS projects
+Repository has been created using AIML40S Template.
 
 
 
