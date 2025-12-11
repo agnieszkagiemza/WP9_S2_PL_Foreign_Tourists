@@ -20,45 +20,10 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -109,12 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css-">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -180,10 +142,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-beautiful-figure" id="toc-a-beautiful-figure" class="nav-link active" data-scroll-target="#a-beautiful-figure">A beautiful figure</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#key-aspects-of-feature-engineering-for-tourism-forecasting" id="toc-key-aspects-of-feature-engineering-for-tourism-forecasting" class="nav-link" data-scroll-target="#key-aspects-of-feature-engineering-for-tourism-forecasting">Key Aspects of Feature Engineering for Tourism Forecasting</a>
   <ul class="collapse">
-  <li><a href="#a-beautiful-dataframe" id="toc-a-beautiful-dataframe" class="nav-link" data-scroll-target="#a-beautiful-dataframe">A beautiful dataframe</a></li>
-  <li><a href="#a-more-sophisticated-table" id="toc-a-more-sophisticated-table" class="nav-link" data-scroll-target="#a-more-sophisticated-table">A more sophisticated table</a></li>
+  <li><a href="#creating-time-based-features" id="toc-creating-time-based-features" class="nav-link" data-scroll-target="#creating-time-based-features">1. Creating Time-Based Features</a></li>
+  <li><a href="#lag-features" id="toc-lag-features" class="nav-link" data-scroll-target="#lag-features">2. Lag Features</a></li>
+  <li><a href="#rolling-window-statistics" id="toc-rolling-window-statistics" class="nav-link" data-scroll-target="#rolling-window-statistics">3. Rolling Window Statistics</a></li>
+  <li><a href="#pandemic-shock-indicators" id="toc-pandemic-shock-indicators" class="nav-link" data-scroll-target="#pandemic-shock-indicators">4. Pandemic / Shock Indicators</a></li>
+  <li><a href="#interaction-features" id="toc-interaction-features" class="nav-link" data-scroll-target="#interaction-features">5. Interaction Features</a></li>
+  </ul></li>
+  <li><a href="#why-do-we-design-features" id="toc-why-do-we-design-features" class="nav-link" data-scroll-target="#why-do-we-design-features">Why do we design features?</a></li>
+  <li><a href="#performed-steps" id="toc-performed-steps" class="nav-link" data-scroll-target="#performed-steps">Performed steps</a>
+  <ul class="collapse">
+  <li><a href="#step-1" id="toc-step-1" class="nav-link" data-scroll-target="#step-1">Step 1</a></li>
+  <li><a href="#step-2" id="toc-step-2" class="nav-link" data-scroll-target="#step-2">Step 2</a></li>
+  <li><a href="#step-3" id="toc-step-3" class="nav-link" data-scroll-target="#step-3">Step 3</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/AIML4OS/AIML4OS-template-quarto-python/edit/main/chapters/Feature_Engineering.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/AIML4OS/AIML4OS-template-quarto-python/blob/main/chapters/Feature_Engineering.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/AIML4OS/AIML4OS-template-quarto-python/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -210,426 +183,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>Open the associated notebook</strong>: <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&amp;version=2.3.19&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&amp;init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&amp;git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&amp;autoLaunch=true" target="_blank" rel="noopener" data-original-href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&amp;version=2.3.19&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&amp;init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&amp;git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&amp;autoLaunch=true"><img src="https://custom-icon-badges.demolab.com/badge/SSP%20Cloud-Launch_with_RStudio-blue?logo=vsc&amp;logoColor=white" alt="Onyxia"></a></p>
-<section id="a-beautiful-figure" class="level1">
-<h1>A beautiful figure</h1>
-<p>This chunk shows how you can produce a beautiful figure.</p>
-<div id="cell-fig-polar" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, r)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div id="fig-polar" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Feature_Engineering_files/figure-html/fig-polar-output-1.png" width="450" height="439" class="figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-polar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: A line plot on a polar axis
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<section id="a-beautiful-dataframe" class="level2">
-<h2 class="anchored" data-anchor-id="a-beautiful-dataframe">A beautiful dataframe</h2>
-<p>This section demonstrates how to create and display a simple pandas DataFrame.</p>
-<div class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>],</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Age"</span>: [<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>],</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"City"</span>: [<span class="st">"Paris"</span>, <span class="st">"Dublin"</span>, <span class="st">"Berlin"</span>]</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div id="tbl-pandas" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="2">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pandas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Simple pandas DataFrame
-</figcaption>
-<div aria-describedby="tbl-pandas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div>
-
-
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">Age</th>
-<th data-quarto-table-cell-role="th">City</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>Alice</td>
-<td>25</td>
-<td>Paris</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>Bob</td>
-<td>30</td>
-<td>Dublin</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>Charlie</td>
-<td>35</td>
-<td>Berlin</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</figure>
-</div>
-</div>
+<p><strong>Open the associated notebook</strong>: <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&amp;version=2.3.19&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&amp;init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&amp;git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&amp;autoLaunch=true" target="_blank" rel="noopener" data-original-href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&amp;version=2.3.19&amp;s3=region-79669f20&amp;init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&amp;init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&amp;git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&amp;autoLaunch=true"><img src="https://custom-icon-badges.demolab.com/badge/SSP%20Cloud-Launch_with_VSCode-blue?logo=vsc&amp;logoColor=white" alt="Onyxia"></a></p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Feature engineering is the process of transforming raw data into meaningful input variables (features) that improve the performance and accuracy of predictive models. In the context of forecasting the number of foreign tourists visiting five selected countries, feature engineering helps reveal important patterns, seasonality, trends, and external factors that influence tourism flows.</p>
 </section>
-<section id="a-more-sophisticated-table" class="level2">
-<h2 class="anchored" data-anchor-id="a-more-sophisticated-table">A more sophisticated table</h2>
-<p>This section demonstrates how to create and display a simple pandas DataFrame.</p>
-<div id="88bed4bf" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT, html</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables.data <span class="im">import</span> sza</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> polars <span class="im">import</span> col <span class="im">as</span> c</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars.selectors <span class="im">as</span> cs</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>sza_pivot <span class="op">=</span> (</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    pl.from_pandas(sza)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">filter</span>((c.latitude <span class="op">==</span> <span class="st">"20"</span>) <span class="op">&amp;</span> (c.tst <span class="op">&lt;=</span> <span class="st">"1200"</span>))</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    .select(pl.col(<span class="st">"*"</span>).exclude(<span class="st">"latitude"</span>))</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    .drop_nulls()</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    .pivot(values<span class="op">=</span><span class="st">"sza"</span>, index<span class="op">=</span><span class="st">"month"</span>, on<span class="op">=</span><span class="st">"tst"</span>, sort_columns<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    GT(sza_pivot, rowname_col<span class="op">=</span><span class="st">"month"</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    .data_color(</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        domain<span class="op">=</span>[<span class="dv">90</span>, <span class="dv">0</span>],</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        palette<span class="op">=</span>[<span class="st">"rebeccapurple"</span>, <span class="st">"white"</span>, <span class="st">"orange"</span>],</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        na_color<span class="op">=</span><span class="st">"white"</span>,</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    .tab_header(</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Solar Zenith Angles from 05:30 to 12:00"</span>,</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        subtitle<span class="op">=</span>html(<span class="st">"Average monthly values at latitude of 20&amp;deg;N."</span>),</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    .sub_missing(missing_text<span class="op">=</span><span class="st">""</span>)</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div id="xskyqhgxqc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>
-#xskyqhgxqc table {
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-        }
-
-#xskyqhgxqc thead, tbody, tfoot, tr, td, th { border-style: none; }
- tr { background-color: transparent; }
-#xskyqhgxqc p { margin: 0; padding: 0; }
- #xskyqhgxqc .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #xskyqhgxqc .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #xskyqhgxqc .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #xskyqhgxqc .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #xskyqhgxqc .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #xskyqhgxqc .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #xskyqhgxqc .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #xskyqhgxqc .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #xskyqhgxqc .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #xskyqhgxqc .gt_column_spanner_outer:first-child { padding-left: 0; }
- #xskyqhgxqc .gt_column_spanner_outer:last-child { padding-right: 0; }
- #xskyqhgxqc .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #xskyqhgxqc .gt_spanner_row { border-bottom-style: hidden; }
- #xskyqhgxqc .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #xskyqhgxqc .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #xskyqhgxqc .gt_from_md> :first-child { margin-top: 0; }
- #xskyqhgxqc .gt_from_md> :last-child { margin-bottom: 0; }
- #xskyqhgxqc .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #xskyqhgxqc .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #xskyqhgxqc .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #xskyqhgxqc .gt_row_group_first td { border-top-width: 2px; }
- #xskyqhgxqc .gt_row_group_first th { border-top-width: 2px; }
- #xskyqhgxqc .gt_striped { background-color: rgba(128,128,128,0.05); }
- #xskyqhgxqc .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #xskyqhgxqc .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #xskyqhgxqc .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #xskyqhgxqc .gt_left { text-align: left; }
- #xskyqhgxqc .gt_center { text-align: center; }
- #xskyqhgxqc .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #xskyqhgxqc .gt_font_normal { font-weight: normal; }
- #xskyqhgxqc .gt_font_bold { font-weight: bold; }
- #xskyqhgxqc .gt_font_italic { font-style: italic; }
- #xskyqhgxqc .gt_super { font-size: 65%; }
- #xskyqhgxqc .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #xskyqhgxqc .gt_asterisk { font-size: 100%; vertical-align: 0; }
- 
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_heading header">
-<td colspan="15" class="gt_heading gt_title gt_font_normal">Solar Zenith Angles from 05:30 to 12:00</td>
-</tr>
-<tr class="gt_heading even">
-<td colspan="15" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Average monthly values at latitude of 20°N.</td>
-</tr>
-<tr class="gt_col_headings header">
-<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
-<th id="0530" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">0530</th>
-<th id="0600" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">0600</th>
-<th id="0630" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">0630</th>
-<th id="0700" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">0700</th>
-<th id="0730" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">0730</th>
-<th id="0800" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">0800</th>
-<th id="0830" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">0830</th>
-<th id="0900" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">0900</th>
-<th id="0930" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">0930</th>
-<th id="1000" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">1000</th>
-<th id="1030" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">1030</th>
-<th id="1100" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">1100</th>
-<th id="1130" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">1130</th>
-<th id="1200" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">1200</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">jan</th>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #774aa5">84.9</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #8c66b3">78.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #a181c0">72.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #b79fcf">66.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #c7b4da">61.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #d8cbe5">56.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #e7dfef">52.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #f4f0f8">48.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fdfdfe">45.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fffcf7">43.6</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fffbf4">43.0</td>
-</tr>
-<tr class="even">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">feb</th>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #6a389b">88.9</td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #8055aa">82.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #9673b9">75.8</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ab8fc7">69.6</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #c1acd6">63.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #d4c5e2">57.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #e7deef">52.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #f7f4fa">47.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fffbf4">43.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fff5e3">40.0</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fff1d6">37.8</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffefd3">37.2</td>
-</tr>
-<tr class="odd">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">mar</th>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #7546a3">85.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #8c66b2">78.8</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #a385c2">72.0</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #baa3d1">65.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #d1c1e0">58.6</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #e6deee">52.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fbfafc">46.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fff6e5">40.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffecc9">35.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffe4b2">31.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffdea2">28.6</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffdc9d">27.7</td>
-</tr>
-<tr class="even">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">apr</th>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #6b3a9c">88.5</td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #835aac">81.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #9b7abc">74.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #b399cc">67.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #cbbadc">60.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #e2d9ec">53.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #faf8fc">46.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fff4e1">39.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffe7bc">33.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffdb98">26.9</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffd079">21.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffc761">17.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffc458">15.5</td>
-</tr>
-<tr class="odd">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">may</th>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #774aa4">85.0</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #8e68b4">78.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #a688c4">71.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #bda8d3">64.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #d6c8e3">57.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ede7f3">50.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fffbf5">43.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffedcd">36.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffdfa5">29.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffd994">26.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffc356">15.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffb732">8.8</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffaf1c">5.0</td>
-</tr>
-<tr class="even">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">jun</th>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #69379b">89.2</td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #7f54aa">82.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #9672b9">76.0</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ac91c8">69.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #c4b0d7">62.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #dbcee7">55.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #f2eef6">48.8</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fff9ed">41.9</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffebc6">35.0</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffdd9f">28.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffcf78">21.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffc150">14.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffb429">7.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffa90b">2.0</td>
-</tr>
-<tr class="odd">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">jul</th>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #6a389c">88.8</td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #8056aa">82.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #9774b9">75.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ad92c8">69.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #c4b1d8">62.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #dbcfe7">55.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #f2eef7">48.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fff9ed">41.8</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffebc6">35.0</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffdd9f">28.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffcf78">21.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffc251">14.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffb42c">7.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffab12">3.1</td>
-</tr>
-<tr class="even">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">aug</th>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #7b4fa7">83.8</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #926db6">77.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #a98dc6">70.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #c1acd6">63.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #d8cbe5">56.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #f0ebf5">49.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fffaf0">42.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffecc9">35.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffdea0">28.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffd079">21.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffc251">14.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffb429">7.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffa90b">1.9</td>
-</tr>
-<tr class="odd">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">sep</th>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #70409f">87.2</td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #875faf">80.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #9f7fbf">73.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #b79fcf">66.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #cfbfdf">59.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #e7dfef">52.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffffff">45.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fff1d8">38.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffe4b1">31.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffd68c">24.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffca69">18.6</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffc04e">13.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffbc42">11.6</td>
-</tr>
-<tr class="even">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">oct</th>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #7a4ea6">84.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #926db6">77.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #a98dc6">70.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #c1acd6">63.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #d8cbe5">56.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #eee9f4">49.9</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fffcf6">43.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fff0d4">37.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffe5b5">32.0</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffdc9b">27.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffd68a">24.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffd383">23.1</td>
-</tr>
-<tr class="odd">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">nov</th>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #6d3d9e">87.8</td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #845aad">81.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #9b79bc">74.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #b095ca">68.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #c6b3d9">61.8</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #dacde6">56.0</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ede7f3">50.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fefefe">45.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fff6e7">40.7</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fff0d4">37.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffebc7">35.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ffeac3">34.4</td>
-</tr>
-<tr class="even">
-<th class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" style="color: #000000; background-color: #FFFFFF">dec</th>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #FFFFFF"></td>
-<td class="gt_row gt_right" style="color: #FFFFFF; background-color: #794da6">84.3</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #8f69b4">78.0</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #a486c2">71.8</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #b79fcf">66.1</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #cab9dc">60.5</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #dbcfe7">55.6</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #ebe4f2">50.9</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #f8f5fa">47.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fffdfa">44.2</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fffaf0">42.4</td>
-<td class="gt_row gt_right" style="color: #000000; background-color: #fff9ed">41.8</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-</div>
+<section id="key-aspects-of-feature-engineering-for-tourism-forecasting" class="level1">
+<h1>Key Aspects of Feature Engineering for Tourism Forecasting</h1>
+<section id="creating-time-based-features" class="level2">
+<h2 class="anchored" data-anchor-id="creating-time-based-features">1. Creating Time-Based Features</h2>
+<p>Tourism data is strongly seasonal. Time features help models learn recurring patterns. Examples include:</p>
+<p>Month, Quarter, Year</p>
+<p>Day of the week (useful for high-frequency data)</p>
+<p>Season indicators (e.g., summer/winter tourism peaks)</p>
+<p>Holiday periods, such as Christmas or national holidays</p>
+</section>
+<section id="lag-features" class="level2">
+<h2 class="anchored" data-anchor-id="lag-features">2. Lag Features</h2>
+<p>These capture how the number of tourists in previous periods influences future values. Examples:</p>
+<p>Tourists lagged by 1 month</p>
+<p>Lag 3, lag 6, lag 12 (to capture annual seasonality)</p>
+</section>
+<section id="rolling-window-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="rolling-window-statistics">3. Rolling Window Statistics</h2>
+<p>Rolling features smooth fluctuations and describe recent trends. Examples:</p>
+<p>3-month moving average</p>
+<p>12-month rolling sum (useful for year-over-year analysis)</p>
+<p>Rolling standard deviation (volatility of tourism flows)</p>
+</section>
+<section id="pandemic-shock-indicators" class="level2">
+<h2 class="anchored" data-anchor-id="pandemic-shock-indicators">4. Pandemic / Shock Indicators</h2>
+<p>Tourism is highly sensitive to global shocks. Examples:</p>
+<ul>
+<li><p>COVID-19 lockdown periods</p></li>
+<li><p>Political instability indicators</p></li>
+<li><p>Natural disaster events</p></li>
+</ul>
+</section>
+<section id="interaction-features" class="level2">
+<h2 class="anchored" data-anchor-id="interaction-features">5. Interaction Features</h2>
+<p>Interactions help models understand combined effects, such as: “Summer season” × “Low exchange rate”</p>
+</section>
+</section>
+<section id="why-do-we-design-features" class="level1">
+<h1>Why do we design features?</h1>
+<p>Well-designed features help:</p>
+<ul>
+<li><p>identify seasonal tourism peaks,</p></li>
+<li><p>capture long-term trends,</p></li>
+<li><p>incorporate economic and social factors that influence travel decisions,</p></li>
+<li><p>improve the accuracy of predictive models.</p></li>
+</ul>
+<p>Ultimately, feature engineering enables the model to better understand what drives the number of foreign tourists in each of the five selected countries and to produce more reliable forecasts</p>
+</section>
+<section id="performed-steps" class="level1">
+<h1>Performed steps</h1>
+<section id="step-1" class="level2">
+<h2 class="anchored" data-anchor-id="step-1">Step 1</h2>
+<p>Description and code below</p>
+</section>
+<section id="step-2" class="level2">
+<h2 class="anchored" data-anchor-id="step-2">Step 2</h2>
+<p>Description and code below</p>
+</section>
+<section id="step-3" class="level2">
+<h2 class="anchored" data-anchor-id="step-3">Step 3</h2>
+<p>Description and code below</p>
 
 
 </section>
