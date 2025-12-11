@@ -23,8 +23,10 @@ website:
     contents: # Add HERE new chapters (but not the notebooks)
       - href: index.qmd
         text: Introduction
-      - href: chapters/chapter1.qmd
-        text: A complete example
+      - href: chapters/Exploanatory_Data_Analysis.qmd
+        text: Exploanatory Data Analysis
+      - href: chapters/Feature_Engeneering.qmd
+        text: Feature Engeneering
 
 format:
   html:
