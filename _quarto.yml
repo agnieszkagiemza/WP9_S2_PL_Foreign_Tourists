@@ -3,8 +3,8 @@ project:
   execute-dir: project
   render: # Add HERE new chapters and new notebooks
     - index.qmd
-    - chapters/Exploanatory_Data_Analysis.qmd
-    - chapters/Feature_Engeneering.qmd
+    - chapters/Explanatory_Data_Analysis.qmd
+    - chapters/Feature_Engineering.qmd
     - notebooks/notebook1.qmd
     - notebooks/notebook2.qmd
 
@@ -23,10 +23,10 @@ website:
     contents: # Add HERE new chapters (but not the notebooks)
       - href: index.qmd
         text: Introduction
-      - href: chapters/Exploanatory_Data_Analysis.qmd
-        text: Exploanatory Data Analysis
-      - href: chapters/Feature_Engeneering.qmd
-        text: Feature Engeneering
+      - href: chapters/Explanatory_Data_Analysis.qmd
+        text: Explanatory Data Analysis
+      - href: chapters/Feature_Engineering.qmd
+        text: Feature Engineering
 
 format:
   html:
