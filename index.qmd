@@ -12,6 +12,8 @@ date: "2025-12-11"
 #doi: "10.1000/182"  # Optional
 #license: "CC-BY 4.0"  # Optional
 
+# 
+
 # If resources is multilingual, adopt that structure
 # (need to have both title and title-* fields)
 # title: "Hello SSPCloud"
