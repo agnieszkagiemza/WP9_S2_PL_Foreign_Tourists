@@ -47,11 +47,10 @@ Range of collected data
 -   Occupancy (tourists and nights spent) by foreign tourists with respect to country of residence
 
 -   Categorical and count data
--   
+  
 
 
-Repository has been created using AIML40S Template
--   # <img height="18" width="18" src="https://cdn.simpleicons.org/python/00ccff99" /> tutorial template for AIML4OS projects
+Repository has been created using AIML40S Template:  <img height="18" width="18" src="https://cdn.simpleicons.org/python/00ccff99" /> tutorial template for AIML4OS projects
 
 
 
