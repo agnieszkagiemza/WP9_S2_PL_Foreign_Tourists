@@ -1,23 +1,18 @@
 ---
-title: "A basic chapter"
+title: "Step 1"
+subtitle: "EDA"
 format: html # This qmd file will be compiled as an HTML web page
 ---
 
-__Open the associated notebook__: <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&version=2.3.19&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&autoLaunch=true" target="_blank" rel="noopener" data-original-href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&version=2.3.19&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&autoLaunch=true"><img src="https://custom-icon-badges.demolab.com/badge/SSP%20Cloud-Launch_with_RStudio-blue?logo=vsc&amp;logoColor=white" alt="Onyxia"></a>
+__Open the associated notebook__: <a href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&version=2.3.19&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&autoLaunch=true" target="_blank" rel="noopener" data-original-href="https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=Notebook1&version=2.3.19&s3=region-79669f20&init.personalInit=«https%3A%2F%2Fraw.githubusercontent.com%2FAIML4OS%2FAIML4OS-template-quarto-python%2Frefs%2Fheads%2Fmain%2Fsspcloud%2Finit-trainees.sh»&init.personalInitArgs=«notebooks%2Fnotebook1.ipynb»&git.repository=«https%3A%2F%2Fgithub.com%2FAIML4OS%2FAIML4OS-template-quarto-python.git»&autoLaunch=true"><img src="https://custom-icon-badges.demolab.com/badge/SSP%20Cloud-Launch_with_VS_Code-blue?logo=vsc&amp;logoColor=white" alt="Onyxia"></a>
 
 # Reading a data
 
-Reading a tourism data//
+Reading a tourism data:
 
 ```{python}
-from pathlib import Path
 import pyreadr
-import os
-
-
 df = pyreadr.read_r('synthetic data/WP9_S2_Tourism_synt.rds').popitem()[1]
-print(df.head())
-
 
 ```
 
@@ -29,19 +24,17 @@ This section  rows of our data frame
 from itables import show, init_notebook_mode
 import pandas as pd
 
-# jeśli chcesz, żeby OKRES był stringiem
-df["OKRES"] = df["OKRES"].astype(str)
+# OKRES consist year and month
+["OKRES"] = df["OKRES"].astype(str)
 
-# włącz tryb interaktywny
+# show internactive mode
 init_notebook_mode(all_interactive=True)
 
-# pokaż df z opcjami filtrowania i paginacji
+# show df z filter and pagination
 show(
     df,
-    column_filters=True,  # filtr w nagłówkach kolumn
-    page_length=25        # ile wierszy na stronę
+    column_filters=True,  # filters in headings
+    page_length=25        # how many rows on page
 )
-
-
 ```
 
