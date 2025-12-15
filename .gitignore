@@ -56,3 +56,19 @@ rsconnect/
 /.quarto/
 
 /.luarc.json
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# System
+.DS_Store
