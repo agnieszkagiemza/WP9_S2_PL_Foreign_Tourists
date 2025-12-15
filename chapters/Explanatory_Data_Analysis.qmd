@@ -23,6 +23,7 @@ This section  rows of our data frame
 ```{python}
 from itables import show, init_notebook_mode
 import pandas as pd
+from itables import options
 options.warn_on_undocumented_option = False
 
 # OKRES consist year and month
