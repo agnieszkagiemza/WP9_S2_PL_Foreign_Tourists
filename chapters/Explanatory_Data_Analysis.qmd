@@ -12,13 +12,21 @@ Reading a tourism data//
 ```{python}
 from pathlib import Path
 import pyreadr
+import os
 
-# katalog nadrzędny (.. = wychodzi z chapters do root repo)
-file_path = Path("..") / "synthetic data" / "WP9_S2_Tourism_synt.rds"
+# sprawdź katalog roboczy
+print("Current working directory:", os.getcwd())
 
+# zbuduj ścieżkę względem katalogu root repo
+file_path = Path(os.getcwd()) / "synthetic data" / "WP9_S2_Tourism_synt.rds"
 print("File exists:", file_path.exists())
-df = pyreadr.read_r(str(file_path)).popitem()[1]
-print(df.head())
+
+# wczytaj df jeśli plik istnieje
+if file_path.exists():
+    df = pyreadr.read_r(str(file_path)).popitem()[1]
+    print(df.head())
+else:
+    print("File not found. Sprawdź ścieżkę!")
 
 ```
 
