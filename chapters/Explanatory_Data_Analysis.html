@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="reading-a-data" class="level1">
 <h1>Reading a data</h1>
 <p>Reading a tourism data:</p>
-<div id="5500cc3b" class="cell" data-execution_count="1">
+<div id="f1a8866e" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyreadr</span>
@@ -225,24 +225,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-beautiful-dataframe" class="level2">
 <h2 class="anchored" data-anchor-id="a-beautiful-dataframe">A beautiful dataframe</h2>
 <p>This section rows of our data frame</p>
-<div id="ce96a19e" class="cell" data-execution_count="2">
+<div id="a5bc893d" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itables <span class="im">import</span> show, init_notebook_mode</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># OKRES consist year and month</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"OKRES"</span>] <span class="op">=</span> df[<span class="st">"OKRES"</span>].astype(<span class="bu">str</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># show internactive mode</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>init_notebook_mode(all_interactive<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># show df z filter and pagination</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>show(</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    df,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    column_filters<span class="op">=</span><span class="va">True</span>,  <span class="co"># filters in headings</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    page_length<span class="op">=</span><span class="dv">25</span>        <span class="co"># how many rows on page</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itables <span class="im">import</span> options</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>options.warn_on_undocumented_option <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># OKRES consist year and month</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"OKRES"</span>] <span class="op">=</span> df[<span class="st">"OKRES"</span>].astype(<span class="bu">str</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># show internactive mode</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>init_notebook_mode(all_interactive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># show df z filter and pagination</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>show(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    df,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    column_filters<span class="op">=</span><span class="va">True</span>,  <span class="co"># filters in headings</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    page_length<span class="op">=</span><span class="dv">25</span>        <span class="co"># how many rows on page</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <script type="module">
@@ -341,15 +343,9 @@ This is the <code>init_notebook_mode</code> cell from ITables v2.6.1<br>
 </noscript>
 </div>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/runner/work/WP9_S2_PL_Foreign_Tourists/WP9_S2_PL_Foreign_Tourists/.venv/lib/python3.12/site-packages/itables/typing.py:282: SyntaxWarning: These arguments are not documented in ITableOptions: {'page_length'}. You can silence this warning by setting `itables.options.warn_on_undocumented_option=False`. If you believe ITableOptions should be updated, please make a PR or open an issue at https://github.com/mwouts/itables
-  warnings.warn(
-/home/runner/work/WP9_S2_PL_Foreign_Tourists/WP9_S2_PL_Foreign_Tourists/.venv/lib/python3.12/site-packages/itables/typing.py:282: SyntaxWarning: These arguments are not documented in DTForITablesOptions: {'page_length'}. You can silence this warning by setting `itables.options.warn_on_undocumented_option=False`. If you believe ITableOptions should be updated, please make a PR or open an issue at https://github.com/mwouts/itables
-  warnings.warn(</code></pre>
-</div>
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_84fb8067_853e_45ee_a940_0eaa8b191b20"><tbody><tr>
+<table id="itables_a05d0b6e_4ae0_4b09_9aa0_22e987b91e18"><tbody><tr>
     <td style="vertical-align:middle; text-align:left">
     <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
     <g style="fill:#d9d7fc">
@@ -416,7 +412,7 @@ This is the <code>init_notebook_mode</code> cell from ITables v2.6.1<br>
         async function init() {
             const { ITable, jQuery: $ } = await window._itables_2_6_1;
 
-            document.querySelectorAll("#itables_84fb8067_853e_45ee_a940_0eaa8b191b20:not(.dataTable)").forEach(table => {
+            document.querySelectorAll("#itables_a05d0b6e_4ae0_4b09_9aa0_22e987b91e18:not(.dataTable)").forEach(table => {
                 if (!(table instanceof HTMLTableElement))
                     return;
 
