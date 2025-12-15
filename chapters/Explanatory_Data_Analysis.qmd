@@ -25,7 +25,7 @@ from itables import show, init_notebook_mode
 import pandas as pd
 
 # OKRES consist year and month
-["OKRES"] = df["OKRES"].astype(str)
+df["OKRES"] = df["OKRES"].astype(str)
 
 # show internactive mode
 init_notebook_mode(all_interactive=True)
