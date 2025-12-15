@@ -10,9 +10,16 @@ __Open the associated notebook__: <a href="https://datalab.sspcloud.fr/launcher/
 Reading a tourism data//
 
 ```{python}
+from pathlib import Path
 import pyreadr
 
-df = pyreadr.read_r(r"..\synthetic data\WP9_S2_Tourism_synt.rds").popitem()[1]
+# katalog nadrzędny + synthetic data
+file_path = Path("..") / "synthetic data" / "WP9_S2_Tourism_synt.rds"
+
+print(file_path.exists())  # sprawdź, czy Python widzi plik
+
+df = pyreadr.read_r(str(file_path)).popitem()[1]
+
 
 ```
 
