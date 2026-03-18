@@ -23,7 +23,7 @@ website:
     contents: # Add HERE new chapters (but not the notebooks)
       - href: index.qmd
         text: Introduction
-      - href: chapters/Explanatory_Data_Analysis_appropriate.qmd
+      - href: chapters\Explanatory_Data_Analysis_appropriate.qmd
         text: Explanatory Data Analysis
       - href: chapters/Feature_Engineering.qmd
         text: Feature Engineering
