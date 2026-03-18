@@ -128,5 +128,25 @@
     "crumbs": [
       "Introduction"
     ]
+  },
+  {
+    "objectID": "chapters/Explanatory_Data_Analysis.html",
+    "href": "chapters/Explanatory_Data_Analysis.html",
+    "title": "Step 1",
+    "section": "",
+    "text": "Open the associated notebook:",
+    "crumbs": [
+      "Explanatory Data Analysis"
+    ]
+  },
+  {
+    "objectID": "chapters/Explanatory_Data_Analysis.html#a-beautiful-dataframe",
+    "href": "chapters/Explanatory_Data_Analysis.html#a-beautiful-dataframe",
+    "title": "Step 1",
+    "section": "A beautiful dataframe",
+    "text": "A beautiful dataframe\nThis section rows of our data frame\n\n\nCode\nfrom itables import show, init_notebook_mode\nimport pandas as pd\nfrom itables import options\noptions.warn_on_undocumented_option = False\n\n# OKRES consist year and month\ndf[\"OKRES\"] = df[\"OKRES\"].astype(str)\n\n# show internactive mode\ninit_notebook_mode(all_interactive=True)\n\n# show df z filter and pagination\nshow(\n    df,\n    column_filters=True,  # filters in headings\n    page_length=25        # how many rows on page\n)\n\n\n\n\n\n\n\n\n\n\n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\nThis is the init_notebook_mode cell from ITables v2.7.1\n(you should not see this message - is your notebook trusted?)\n\n\n\n\n\n\n  \n    \n      \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n        Loading ITables v2.7.1 from the init_notebook_mode cell...\n        (need help?)",
+    "crumbs": [
+      "Explanatory Data Analysis"
+    ]
   }
 ]

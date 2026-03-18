@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://AIML4OS.github.io/AIML4OS-template-quarto-python/chapters/Feature_Engineering.html</loc>
-    <lastmod>2026-03-18T12:26:26.558Z</lastmod>
+    <lastmod>2026-03-18T12:32:39.171Z</lastmod>
   </url>
   <url>
     <loc>https://AIML4OS.github.io/AIML4OS-template-quarto-python/index.html</loc>
-    <lastmod>2026-03-18T12:26:26.574Z</lastmod>
+    <lastmod>2026-03-18T12:32:39.187Z</lastmod>
+  </url>
+  <url>
+    <loc>https://AIML4OS.github.io/AIML4OS-template-quarto-python/chapters/Explanatory_Data_Analysis.html</loc>
+    <lastmod>2026-03-18T12:32:39.169Z</lastmod>
   </url>
 </urlset>
