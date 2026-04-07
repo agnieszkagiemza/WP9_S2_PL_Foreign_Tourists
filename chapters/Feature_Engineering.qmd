@@ -73,28 +73,138 @@ Ultimately, feature engineering enables the model to better understand what driv
 
 ## Step 1
 
-Description and code below
+Import necessary libraries and load the dataset.
 
 ```{python}
-
+import pyreadr
+data = pyreadr.read_r(r'C:\W9 repo z templatki\WP9_S2_PL_Foreign_Tourists\synthetic data\WP9_S2_Tourism_synt.rds').popitem()[1]
 
 
 ```
 
 ## Step 2
 
-Description and code below
+Import libraries for feature engineering and create new features based on the original dataset.
 
 ```{python}
 
+
+import pandas as pd
+import numpy as np
 
 
 ```
 
 ## Step 3
 
-Description and code below
+Download the dataset and create a dictionary of dataframes, one for each KKR (country). Then, define a function to add features such as rolling means, lags, and group statistics (mean, standard deviation, coefficient of variation) based on different grouping variables (WON, POW, GMN, RO). Finally, apply this function to each dataframe in the dictionary.
 
 ```{python}
 
+
+
+# --- Get unique KKR values ---
+kkr_list = data["KKR"].unique()
+
+# --- Create a dictionary (equivalent of list in R) ---
+tourist_kkr_dict = {
+    f"tourist_kkr_{kkr}": data[data["KKR"] == kkr].copy()
+    for kkr in kkr_list
+}
+
+# --- Function to add features ---
+def add_features_to_df(df, tourist_col="D8R1"):
+    
+    # --- Convert OKRES -> date and sort ---
+    df["data"] = pd.to_datetime(df["OKRES"].astype(str).str[:4] + "-" +
+                               df["OKRES"].astype(str).str[4:6] + "-01")
+    df = df.sort_values("data")
+    
+    # --- Moving averages: 3, 6, 9 months ---
+    df["rollmean_3"] = df[tourist_col].rolling(window=3).mean()
+    df["rollmean_6"] = df[tourist_col].rolling(window=6).mean()
+    df["rollmean_9"] = df[tourist_col].rolling(window=9).mean()
+    
+    # --- Lags: 1–12 months ---
+    for i in range(1, 13):
+        df[f"lag_{i}"] = df[tourist_col].shift(i)
+    
+    # --- Function to compute coefficient of variation (CV) ---
+    def add_group_stats(df, group_col, prefix):
+        grouped = df.groupby(group_col)[tourist_col]
+        
+        mean = grouped.transform("mean")
+        std = grouped.transform("std")
+        
+        df[f"{prefix}_mean"] = mean
+        df[f"{prefix}_sd"] = std
+        df[f"{prefix}_cv"] = np.where(mean == 0, np.nan, std / mean)
+        
+        return df
+
+    # --- Aggregations and merging back to rows ---
+    df = add_group_stats(df, "WON", "WON")
+    df = add_group_stats(df, "POW", "POW")
+    df = add_group_stats(df, "GMN", "GMN")
+    df = add_group_stats(df, "RO", "RO")
+
+    return df
+
+
+# --- Overwrite dictionary with enriched dataframes ---
+tourist_kkr_dict = {
+    key: add_features_to_df(df, tourist_col="D8R1")
+    for key, df in tourist_kkr_dict.items()
+}
+
+# --- Check keys ---
+print(tourist_kkr_dict.keys())
+```
+
+## Step 3
+
+Dataset is too large to deal with it in a notebook, so we will save enriched dataframes to separate CSV files for each KKR (country) and use them in the next steps of the project. Thats the reason why we choose only 10 couttries weith the highest number of tourists in the original dataset.. Dataset for each coutry will separate file with name "tourist_kkr\_{KKR}.csv" in the "enriched_data" folder.
+
+```{python}
+# --- Create output folder ---
+output_dir = "top10_countries_features"
+os.makedirs(output_dir, exist_ok=True)
+
+# --- Select top 10 countries ---
+top_kkr = (
+    data.groupby("KKR")["D8R1"]
+    .sum()
+    .sort_values(ascending=False)
+    .head(10)
+    .index
+)
+```
+
+And at final we will save enriched dataframes to separate CSV files for each KKR (country) and use them in the next steps of the project.
+
+# Save each country separately 
+
+```{python}
+import os
+
+# --- Correct relative path ---
+output_dir = os.path.join("..", "synthetic data")
+
+# --- Ensure directory exists ---
+os.makedirs(output_dir, exist_ok=True)
+
+print("Saving to:", os.path.abspath(output_dir))
+
+
+for kkr in top_kkr:
+    df_kkr = data[data["KKR"] == kkr].copy()
+    
+    df_kkr = add_features_to_df(df_kkr, tourist_col="D8R1")
+    
+    safe_kkr = str(kkr).replace(" ", "_")
+    file_path = os.path.join(output_dir, f"tourist_{safe_kkr}_features.xlsx")
+    
+    df_kkr.to_excel(file_path, index=False)
+
+print("Files saved to correct folder!")
 ```
